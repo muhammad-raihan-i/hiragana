@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="a">ALAT PENGUBAH LATIN KE HIRAGANA.<br></p>
+</body>
+</html>
+<script>
+    const latin="aaAAiiIIuuUUeeEEooOOKAGAKIGIKUGUKEGEKOGOSAZASIZISUZUSEZESOZOTADATIDItuTUDUTEDETODONANINUNENOHABAPAHIBIPIHUBUPUHEBEPEHOBOPOMAMIMUMEMOyaYAyuYUyoYORARIRUREROwaWAWIWEWONNVUkake><><MRTTMRTTRPRVYR";
+    function hiragana(text){
+        let maxi=text.length/2;
+        let maxj=latin.length/2;
+        let i=0;
+        let j=0;
+        let result="";
+        let charnum=0;
+        while(i<maxi){
+            while(j<maxj){
+                if(text[2*i]+text[2*i+1]==latin[2*j]+latin[2*j+1]){
+                    charnum=12353+j;
+                    result+="&#"+charnum.toString()+";";
+                    j+=maxj;
+                }
+                j++;
+            }
+            j=0;
+            i++;
+        }
+        return result;
+    }
+    let text = "KIWOTUKETEKUDASAII";
+    document.getElementById("a").innerHTML+=text+"<br>"+hiragana(text);
+</script>
